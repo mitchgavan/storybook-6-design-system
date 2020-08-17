@@ -12,48 +12,43 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-const ColorsTemplate: Story<ButtonProps> = ({ colorScheme, ...args }) => {
-  console.log({ args });
-  return (
-    <HStack>
-      <Button colorScheme="purple" {...args} />
-      <Button colorScheme="green" {...args} />
-      <Button colorScheme="red" {...args} />
-    </HStack>
-  );
-};
+const VariantsTemplate: Story<ButtonProps> = ({ variant, ...args }) => (
+  <HStack spacing={4}>
+    <Button variant="solid" {...args} />
+    <Button variant="outline" {...args} />
+    <Button variant="link" {...args} />
+  </HStack>
+);
+
+const ColorsTemplate: Story<ButtonProps> = ({ colorScheme, ...args }) => (
+  <HStack spacing={4}>
+    <Button colorScheme="purple" {...args} />
+    <Button colorScheme="green" {...args} />
+    <Button colorScheme="red" {...args} />
+  </HStack>
+);
+
+const SizeTemplate: Story<ButtonProps> = () => (
+  <HStack spacing={4}>
+    <Button size="sm">Button</Button>
+    <Button size="md">Button</Button>
+  </HStack>
+);
 
 export const Default = Template.bind({});
 Default.args = {
   children: 'Button',
 };
 
-export const Solid = ColorsTemplate.bind({});
-Solid.args = {
+export const Variants = VariantsTemplate.bind({});
+Variants.args = {
+  children: 'Button',
+};
+
+export const Colors = ColorsTemplate.bind({});
+Colors.args = {
   children: 'Button',
   variant: 'solid',
 };
 
-export const Outline = ColorsTemplate.bind({});
-Outline.args = {
-  children: 'Button',
-  variant: 'outline',
-};
-
-export const Link = ColorsTemplate.bind({});
-Link.args = {
-  children: 'Button',
-  variant: 'link',
-};
-
-// export const Large = Template2.bind({});
-// Large.args = {
-//   size: 'large',
-//   label: 'Button',
-// };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//   size: 'small',
-//   label: 'Button',
-// };
+export const Sizes = SizeTemplate.bind({});

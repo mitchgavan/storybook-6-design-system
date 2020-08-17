@@ -7,6 +7,9 @@ export interface ButtonProps {
   children: React.ReactNode;
   colorScheme?: 'purple' | 'red' | 'green';
   size?: 'sm' | 'md';
+  /**
+   * Visual style variations
+   */
   variant?: 'solid' | 'outline' | 'link';
 }
 
