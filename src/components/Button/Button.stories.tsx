@@ -3,6 +3,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Button, { ButtonProps } from './Button';
+import { HStack } from '@chakra-ui/core';
 
 export default {
   title: 'Example/Button',
@@ -11,16 +12,39 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  // primary: true,
+const ColorsTemplate: Story<ButtonProps> = ({ colorScheme, ...args }) => {
+  console.log({ args });
+  return (
+    <HStack>
+      <Button colorScheme="purple" {...args} />
+      <Button colorScheme="green" {...args} />
+      <Button colorScheme="red" {...args} />
+    </HStack>
+  );
+};
+
+export const Default = Template.bind({});
+Default.args = {
   children: 'Button',
 };
 
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   label: 'Button',
-// };
+export const Solid = ColorsTemplate.bind({});
+Solid.args = {
+  children: 'Button',
+  variant: 'solid',
+};
+
+export const Outline = ColorsTemplate.bind({});
+Outline.args = {
+  children: 'Button',
+  variant: 'outline',
+};
+
+export const Link = ColorsTemplate.bind({});
+Link.args = {
+  children: 'Button',
+  variant: 'link',
+};
 
 // export const Large = Template2.bind({});
 // Large.args = {

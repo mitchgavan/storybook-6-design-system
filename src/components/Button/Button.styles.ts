@@ -40,13 +40,13 @@ const button = styleConfig({
   sizes: {
     sm: {
       fontSize: 'sm',
-      px: 3,
-      py: 2,
+      px: '0.75rem',
+      py: '0.375rem',
     },
     md: {
       fontSize: 'md',
-      px: 4,
-      py: 3,
+      px: '1rem',
+      py: '0.5rem',
     },
   },
   // styles for the visual style variations
