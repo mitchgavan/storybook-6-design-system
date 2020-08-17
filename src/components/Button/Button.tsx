@@ -7,7 +7,7 @@ export interface ButtonProps {
   children: React.ReactNode;
   colorScheme?: 'purple' | 'red' | 'green';
   size?: 'sm' | 'md';
-  variant?: 'solid' | 'outline';
+  variant?: 'solid' | 'outline' | 'link';
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(

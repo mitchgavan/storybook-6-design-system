@@ -11,11 +11,30 @@ function variantSolid({ colorScheme }: Dict) {
   };
 }
 
+function variantOutline({ colorScheme }: Dict) {
+  return {
+    border: '1px',
+    color: `${colorScheme}.500`,
+    _hover: { bg: `${colorScheme}.50` },
+    _active: { bg: `${colorScheme}.100` },
+  };
+}
+
+function variantLink({ colorScheme }: Dict) {
+  return {
+    color: `${colorScheme}.500`,
+    padding: 0,
+    _hover: { color: `${colorScheme}.600`, textDecoration: 'underline' },
+    _active: { color: `${colorScheme}.700` },
+  };
+}
+
 const button = styleConfig({
   // styles for the base style
   baseStyle: {
     borderRadius: 'md',
     fontWeight: 'bold',
+    transition: 'all 250ms',
   },
   // styles for the size variations
   sizes: {
@@ -32,10 +51,8 @@ const button = styleConfig({
   },
   // styles for the visual style variations
   variants: {
-    outline: {
-      border: '2px solid',
-      borderColor: 'green.500',
-    },
+    link: variantLink,
+    outline: variantOutline,
     solid: variantSolid,
   },
 });
