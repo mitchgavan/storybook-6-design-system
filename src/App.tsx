@@ -29,7 +29,7 @@ export const App = () => (
         <ColorModeSwitcher justifySelf="flex-end" />
         <VStack spacing={8}>
           <Logo h="40vmin" pointerEvents="none" />
-          <Text sx={{ _hover: { color: 'red' } }}>
+          <Text>
             Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
           </Text>
           <Link
@@ -41,11 +41,9 @@ export const App = () => (
           >
             Learn Chakra
           </Link>
-          <Box as="button">Hello</Box>
-          <Flex>
-            <Button variant="solid">Yo you </Button>
-            <Button variant="outline">Yo you </Button>
-          </Flex>
+          <Button variant="solid" onClick={() => console.log('yo')}>
+            The Button
+          </Button>
         </VStack>
       </Grid>
     </Box>
