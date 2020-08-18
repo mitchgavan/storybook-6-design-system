@@ -25,6 +25,7 @@ const ColorsTemplate: Story<ButtonProps> = ({ colorScheme, ...args }) => (
     <Button colorScheme="purple" {...args} />
     <Button colorScheme="green" {...args} />
     <Button colorScheme="red" {...args} />
+    <Button colorScheme="gray" {...args} />
   </HStack>
 );
 
@@ -52,3 +53,9 @@ Colors.args = {
 };
 
 export const Sizes = SizeTemplate.bind({});
+
+export const Disabled = VariantsTemplate.bind({});
+Disabled.args = {
+  children: 'Button',
+  isDisabled: true,
+};

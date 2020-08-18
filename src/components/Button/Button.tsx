@@ -4,17 +4,25 @@ import { useStyleConfig } from '@chakra-ui/core';
 import styleConfig from './Button.styles';
 
 export interface ButtonProps {
+  /**
+   * Button contents
+   */
   children: React.ReactNode;
-  colorScheme?: 'purple' | 'red' | 'green';
+  colorScheme?: 'gray' | 'purple' | 'red' | 'green';
+  isDisabled?: boolean;
   size?: 'sm' | 'md';
   /**
    * Visual style variations
    */
   variant?: 'solid' | 'outline' | 'link';
+  /**
+   * Optional click handler
+   */
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, colorScheme, size, variant }, ref) => {
+  ({ children, colorScheme, size, variant, isDisabled }, ref) => {
     const styles = useStyleConfig('Button', {
       styleConfig,
       size,
@@ -23,7 +31,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     });
 
     return (
-      <Box as="button" ref={ref} sx={styles}>
+      <Box as="button" ref={ref} sx={styles} disabled={isDisabled}>
         {children}
       </Box>
     );
@@ -32,6 +40,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.defaultProps = {
   colorScheme: 'purple',
+  isDisabled: false,
   size: 'md',
   variant: 'solid',
 };

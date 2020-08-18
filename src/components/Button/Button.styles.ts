@@ -35,6 +35,10 @@ const button = styleConfig({
     borderRadius: 'md',
     fontWeight: 'bold',
     transition: 'all 250ms',
+    _disabled: {
+      opacity: 0.4,
+      cursor: 'not-allowed',
+    },
   },
   // styles for the size variations
   sizes: {
