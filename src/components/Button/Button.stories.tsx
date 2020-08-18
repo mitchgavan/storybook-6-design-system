@@ -20,42 +20,20 @@ const VariantsTemplate: Story<ButtonProps> = ({ variant, ...args }) => (
   </HStack>
 );
 
-const ColorsTemplate: Story<ButtonProps> = ({ colorScheme, ...args }) => (
-  <HStack spacing={4}>
-    <Button colorScheme="purple" {...args} />
-    <Button colorScheme="green" {...args} />
-    <Button colorScheme="red" {...args} />
-    <Button colorScheme="gray" {...args} />
-  </HStack>
-);
-
-const SizeTemplate: Story<ButtonProps> = () => (
-  <HStack spacing={4}>
-    <Button size="sm">Button</Button>
-    <Button size="md">Button</Button>
-  </HStack>
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Button',
-};
-
-export const Variants = VariantsTemplate.bind({});
-Variants.args = {
-  children: 'Button',
-};
-
-export const Colors = ColorsTemplate.bind({});
-Colors.args = {
+export const Solid = Template.bind({});
+Solid.args = {
   children: 'Button',
   variant: 'solid',
 };
 
-export const Sizes = SizeTemplate.bind({});
-
-export const Disabled = VariantsTemplate.bind({});
-Disabled.args = {
+export const Outline = Template.bind({});
+Outline.args = {
   children: 'Button',
-  disabled: true,
+  variant: 'outline',
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  children: 'Button',
+  variant: 'link',
 };

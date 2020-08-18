@@ -12,7 +12,6 @@ interface ButtonOptions {
    * Customize the size.
    */
   size?: 'sm' | 'md';
-
   /**
    * Visual style variations.
    */
