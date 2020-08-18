@@ -3,26 +3,28 @@ import { Box } from '@chakra-ui/core';
 import { useStyleConfig } from '@chakra-ui/core';
 import styleConfig from './Button.styles';
 
-export interface ButtonProps {
+interface ButtonOptions {
   /**
-   * Button contents
+   * Customize the color based on the theme.
    */
-  children: React.ReactNode;
   colorScheme?: 'gray' | 'purple' | 'red' | 'green';
-  isDisabled?: boolean;
-  size?: 'sm' | 'md';
   /**
-   * Visual style variations
+   * Customize the size.
+   */
+  size?: 'sm' | 'md';
+
+  /**
+   * Visual style variations.
    */
   variant?: 'solid' | 'outline' | 'link';
-  /**
-   * Optional click handler
-   */
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
+export interface ButtonProps
+  extends React.PropsWithoutRef<JSX.IntrinsicElements['button']>,
+    ButtonOptions {}
+
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, colorScheme, size, variant, isDisabled }, ref) => {
+  ({ children, colorScheme, size, variant, ...rest }, ref) => {
     const styles = useStyleConfig('Button', {
       styleConfig,
       size,
@@ -31,7 +33,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     });
 
     return (
-      <Box as="button" ref={ref} sx={styles} disabled={isDisabled}>
+      <Box as="button" ref={ref} sx={styles} {...rest}>
         {children}
       </Box>
     );
@@ -40,7 +42,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.defaultProps = {
   colorScheme: 'purple',
-  isDisabled: false,
   size: 'md',
   variant: 'solid',
 };

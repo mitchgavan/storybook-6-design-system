@@ -57,5 +57,5 @@ export const Sizes = SizeTemplate.bind({});
 export const Disabled = VariantsTemplate.bind({});
 Disabled.args = {
   children: 'Button',
-  isDisabled: true,
+  disabled: true,
 };
