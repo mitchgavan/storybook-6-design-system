@@ -8,7 +8,6 @@ import {
   VStack,
   Code,
   Grid,
-  Flex,
 } from '@chakra-ui/core';
 import theme from '@chakra-ui/theme';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
